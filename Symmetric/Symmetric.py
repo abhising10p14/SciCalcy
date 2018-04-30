@@ -2,24 +2,19 @@ from tkinter import *
 from easygui import*
 from numpy import *
 import math
-import gaussian as xy
+import os
 
 
-
-#   http://www.python-course.eu/tkinter_layout_management.php   -> Important source to learn 
-
-# This integer box  takes the input of the order of the matrix, where the default value is set to null
 n = integerbox(msg="Input the order of the matrix", 
-    title = "Gauss Elimenation with pivoting",
+    title = "Symmetric matrix operation",
     lowerbound = 0)
-# Now we are using tkinter to take input of the augmented matrix
 
 n = int(n)
 rows = []
 root  = Tk()
 for i in range(n):
     cols = []
-    for j in range(n+1):
+    for j in range(n):
         e = Entry(root,relief=RIDGE,bg='black',fg= 'white',font = "Helvetica 15 bold")
         e.grid(row=i, column=j, sticky=NSEW)
         cols.append(e)
@@ -27,7 +22,7 @@ for i in range(n):
 
 
 def onPress():
-    matr = []
+    matrix = []
     for row in rows:
         columns = []
         for col in row:
@@ -45,19 +40,31 @@ def onPress():
                 if question[1:].isdigit(): 
                     columns.append(question)
                 else:
-                    msgbox("Invalid integer or blank entry !!!", "Warning!")
+                    msgbox("Invalid  integer or blank entry !!!", "Warning!")
                     sys.exit()
-        matr.append(columns)
-    a = matr
+        matrix.append(columns)
+    a = matrix
     root.destroy()
+    # Writing into a Matrix.txt file so that symmetric class can use this
     try:
-        xy.Gauss_elimination(a,n)
+        f = open("Matrix.txt","w+")
+        for row in matrix:
+            for col in row:
+                f.write(col)
+                f.write(" ")
+            f.write("\n")
+        f.close()
     except Exception as ex:
-        msgbox("Error!!!!!!division by zero")
+        msgbox("couldn't create a file")
 
 
-            
+
 
 Button(text='OK', command=onPress).grid()
-
 mainloop()
+
+
+
+
+#os.system(" g++ ./test/test_file.cpp")
+#os.system(" ./a.out")
