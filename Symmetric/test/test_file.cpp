@@ -4,7 +4,9 @@
 
 int main()
 {
-  Eigen:: MatrixXd m(4,4);
+  int n ;
+  std::cin>>n;
+  Eigen:: MatrixXd m(n,n);
 // Can be stored in this formt also:
   m << 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16;
   std::cout<<"m :"<<"\n"<<m<<"\n"<<"\n";
