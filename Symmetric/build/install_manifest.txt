@@ -1,0 +1,3 @@
+/usr/local/lib/libSymmetric.a
+/usr/local/include/Symmetric.h
+/usr/local/include/Symmetric.cpp

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abhishek/Gsoc/Atlas/Symmetric/src/Symmetric.cpp
+Symmetric.h
+/home/abhishek/Gsoc/Atlas/Symmetric/src/Symmetric.h
+iostream
+-
+thread
+-
+
+/home/abhishek/Gsoc/Atlas/Symmetric/src/Symmetric.h
+vector
+-
+typeinfo
+-
+eigen3/Eigen/Dense
+-
+eigen3/Eigen/Dense
+-
+Eigen/Dense
+-
+
